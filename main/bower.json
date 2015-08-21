@@ -1,0 +1,22 @@
+{
+  "name": "require-modules",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rogerthemoose/require-modules",
+  "authors": [
+    "Sasa Milovic <smilovic@thoughtworks.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~3.0.3",
+    "jquery": "~2.1.4",
+    "requirejs": "*",
+    "requirejs-text": "~2.0.14"
+  }
+}

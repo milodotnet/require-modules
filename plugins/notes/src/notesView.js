@@ -1,12 +1,12 @@
-define(['jquery', 'Handlebars', 'notesBaseUrl'], function($, Handlebars, notesBaseUrl) {
+define(['jquery', 'handlebars', 'text!notes/notes.handlebars'], function($, Handlebars, source) {
 
     return {
         show: function(config) {
-            $.ajax(notesBaseUrl + '/notes.handlebars').done(function (source) {
-                var template = Handlebars.compile(source);
-                var html = template({configuration: config});
-                $('body').append(html);
-            })
+
+            var template = Handlebars.compile(source);
+            var html = template({configuration: config});
+            $('body').append(html);
+
         }
     }
 

@@ -1,8 +1,35 @@
-requirejs.config({
-    baseUrl: 'lib',
+var libsBase = 'bower_components/'
+
+require.config({
+    baseUrl: '',
+    packages: [
+        {
+            name: 'main',
+            location: 'app'
+        },
+        {
+            name: 'notes',
+            location: 'http://localhost:8030/notes/src'
+        }],
     paths: {
-        app: '../app'
+        jquery: libsBase + 'jquery/dist/jquery',
+        handlebars : libsBase + 'handlebars/handlebars',
+        text : libsBase + 'requirejs-text/text'
+    },
+    /* uncomment to map to another view
+    map:{
+        '*' : {
+         'notes/notesView' : 'main/customNotesView'
+        }
+    },
+    */
+    config : {
+        text: {
+            useXhr: function (url, protocol, hostname, port) {
+                return (hostname === 'localhost');
+            }
+        }
     }
 });
 
-requirejs(['app/main']);
+require(['main/bootstrap']);
