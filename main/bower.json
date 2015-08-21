@@ -17,6 +17,7 @@
     "handlebars": "~3.0.3",
     "jquery": "~2.1.4",
     "requirejs": "*",
-    "requirejs-text": "~2.0.14"
+    "requirejs-text": "~2.0.14",
+    "davis": "~0.9.8"
   }
 }
