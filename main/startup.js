@@ -14,7 +14,14 @@ require.config({
     paths: {
         jquery: libsBase + 'jquery/dist/jquery',
         handlebars : libsBase + 'handlebars/handlebars',
-        text : libsBase + 'requirejs-text/text'
+        text : libsBase + 'requirejs-text/text',
+        Davis : libsBase + 'davis/davis.min'
+    },
+    shim: {
+        Davis: {
+          deps : ['jquery'],
+          exports: 'Davis'
+        }
     },
     /* uncomment to map to another view
     map:{
