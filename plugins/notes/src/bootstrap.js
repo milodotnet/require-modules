@@ -1,5 +1,16 @@
 define(function (require) {
 
+
+    function registerCmd(commandChannel, name, fn, where, title, href) {
+         var commandRegistration = {
+                name        : name,
+                callback    : fn,
+                where       : where,
+                title       : title,
+                href        : href
+            };
+            commandChannel.register(commandRegistration);
+    }
     return {
         init: function (commandChannel) {
             var notesControllerFactory = require('notes/notesControllerFactory');
@@ -13,15 +24,13 @@ define(function (require) {
 
             var notesView = notesViewFactory(jquery, compiledTemplate);
 
-            var notesController = notesControllerFactory(notesView);
 
-            var commandRegistration = {
-                name        : 'acivateNotes',
-                callback    : notesController.activate,
-                where       : 'toolbar',
-                title       : 'active the notes module'
-            };
-            commandChannel.register(commandRegistration);
+
+            var notesController = notesControllerFactory(notesView);
+            //registerCmd(commandChannel, 'notesMain', function() { console.log('!'); }, '.toolbar', '', '');
+            registerCmd(commandChannel, 'activateNotes', notesController.activate, '.toolbar', 'active the notes module', '/#/notes/activate');
+
+
         }
     };
 
